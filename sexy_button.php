@@ -112,13 +112,15 @@ class SexyButtonHelper extends AppHelper
     function __getAttributes($options)
     {
         //class
-        $class = '';
+        $class = 'sexybutton';
         if (isset($options['class'])) {
-            $class = $options['class'];
+            $class = $options['class'] . ' ' . $class;
         }
-        $class .=' sexybutton';
         if (!empty($options['skin'])) {
             $class .= ' ' . $options['skin'];
+        }
+        if (!empty($options['disabled'])) {
+            $class .= ' disabled';
         }
         $options['class'] = $class;
         unset($options['escape'], $options['icon'], $options['skin']);
